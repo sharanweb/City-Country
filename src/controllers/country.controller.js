@@ -15,7 +15,7 @@ router.post("/",async(req,res)=>{
 
 router.get("/", async(req,res)=>{
     try {
-        const country = await Country.find().populate("product_id").lean().exec();
+        const country = await Country.find().populate().lean().exec();
         return res.status(201).send({"country":country});
     } catch (error) {
         return res.status(500).send({message: error.message});

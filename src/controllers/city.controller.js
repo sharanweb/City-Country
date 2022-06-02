@@ -15,7 +15,7 @@ router.post("/",async(req,res)=>{
 
 router.get("/", async(req,res)=>{
     try {
-        const city = await City.find().populate("product_id").lean().exec();
+        const city = await City.find().populate().lean().exec();
         return res.status(201).send({"city":city});
     } catch (error) {
         return res.status(500).send({message: error.message});
